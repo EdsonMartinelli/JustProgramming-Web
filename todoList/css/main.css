@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+body{
+    font-family: 'Roboto', sans-serif;
+    background-image: linear-gradient(135deg, rgb(32, 186, 230),rgb(110, 6, 173));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+#container{
+    background-color: #FFF;
+    min-width: 450px;
+    max-width: 450px;
+    border-radius: 10px;
+    padding: 15px;
+    box-sizing: border-box;
+    box-shadow: #757575;
+    box-shadow: 0px 0px 25px 11px rgba(0,0,0,0.23);
+}
+
+header{
+    height: 100px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    border-bottom: 1px solid #dce4ec;
+    margin-bottom: 20px;
+}
+
+#allTasks{
+    font-size: 1.8rem;
+}
+
+#remainTasks{
+    font-size: 1.2rem;
+}
+
+#addArea{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+    margin-bottom: 20px;
+}
+
+input{
+    width: 80%;
+    height: 25px;
+    border-radius: 20px;
+    border: 1px solid #dce4ec; 
+    padding: 5px;
+    color: #757575;
+}
+
+input:focus{
+    outline: 1px solid #3c79d1;
+}
+
+button{
+    height: 38px;
+    padding: 5px 14px;
+    border-radius: 20px;
+    background-color: #FFF;
+    border: 1px solid #3c79d1;
+    color: #3c79d1;
+}
+
+button:active{
+    border: 1px solid #504cc3;
+    color: #504cc3;
+}
+
+#taskArea{
+    min-height: 200px;
+}
