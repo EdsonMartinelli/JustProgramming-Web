@@ -73,8 +73,9 @@ button{
 }
 
 button:active{
-    border: 1px solid #504cc3;
-    color: #504cc3;
+    background-color: #3c79d1;
+    color: #FFF;
+    border: 1px solid transparent;
 }
 
 #taskArea{
@@ -97,6 +98,14 @@ button:active{
     gap: 10px;
     font-size: 1.1rem;
     color: #424242;
+}
+
+.itemActions{
+    max-width: 50%;
+    min-width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .statusActive, .statusUnactive{
