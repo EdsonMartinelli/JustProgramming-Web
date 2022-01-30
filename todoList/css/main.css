@@ -123,6 +123,9 @@ label{
     display: flex;
     align-items: center;
     justify-content: center;
+    color: #FFF;
+    font-weight: 600;
+    font-size: 0.8rem;
 }
 
 .statusActive::before, .statusFinished::before{
@@ -144,8 +147,6 @@ label{
     border-color: transparent rgb(110, 6, 173) transparent transparent;
 }
 
-.statusFinished, .statusActive > span{
-    color: #FFF;
-    font-weight: 600;
-    font-size: 0.8rem;
+.example{
+    display: none;
 }
