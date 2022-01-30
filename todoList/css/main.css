@@ -98,11 +98,17 @@ button:active{
     gap: 10px;
     font-size: 1.1rem;
     color: #424242;
+    width: 50%;
+}
+
+label{
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .itemActions{
-    max-width: 50%;
-    min-width: 50%;
+    max-width: 40%;
+    min-width: 40%;
     display: flex;
     align-items: center;
     justify-content: space-between;
