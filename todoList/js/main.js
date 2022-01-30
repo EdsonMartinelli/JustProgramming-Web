@@ -1,11 +1,10 @@
 "use strict"
 
-let addTextField = document.querySelector("#addTextField")
-let addButton = document.querySelector("#addButton")
-let taskArea = document.querySelector("#taskArea")
-
-let allTasks = document.querySelector("#allTasks")
-let remainTasks = document.querySelector("#remainTasks")
+const addTextField = document.querySelector("#addTextField")
+const addButton = document.querySelector("#addButton")
+const taskArea = document.querySelector("#taskArea")
+const allTasks = document.querySelector("#allTasks")
+const remainTasks = document.querySelector("#remainTasks")
 
 let index = 0
 let contTask = 0
@@ -17,54 +16,78 @@ addButton.addEventListener("click", () => {
             task: addTextField.value,
             status: "Active",
         }
-    task[index++] = newTask
-    allTasks.innerHTML= (++contTask).toString() + " Tasks"
-
-    remainTasks.innerHTML= (++contRemain).toString() + " Remain"
-    createItem(newTask)
-    console.log(task)
-    
+    task[index] = newTask
+    allTasks.innerHTML= `${++contTask} Task`
+    remainTasks.innerHTML= `${++contRemain} Remain`
+    createItem(newTask) 
+    index++   
 })
 
+function updateItem(indexOfItem){
+    task[indexOfItem].status = "Finished"
+    const item = document.querySelector(`#item-${indexOfItem}`)
+    const statusItem = item.lastElementChild.firstElementChild
+    statusItem.firstElementChild.remove()
+    statusItem.classList.remove("statusActive")
+    statusItem.classList.add("statusFinished")
+
+    const spanStatusItem = document.createElement("span")
+    spanStatusItem.innerHTML = task[indexOfItem].status
+    statusItem.appendChild(spanStatusItem)
+
+    contRemain--
+    remainTasks.innerHTML= `${contRemain} Remain`
+}
+
+function deleteItem(indexOfItem){
+    const item = document.querySelector(`#item-${indexOfItem}`)
+    contTask--
+    allTasks.innerHTML= `${contTask} Tasks`
+    if(task[indexOfItem].status == "Active") {
+        contRemain--
+        remainTasks.innerHTML= `${contRemain} Remain`
+    }
+    delete task[indexOfItem]
+    item.remove()
+}
+
 function createItem(newTask){
-    let divItem = document.createElement("div")
-    divItem.setAttribute("id",`item-${index - 1}`)
+    const divItem = document.createElement("div")
+    divItem.setAttribute("id",`item-${index}`)
     divItem.classList.add("item")
 
-    let divItemName = document.createElement("div")
+    const divItemName = document.createElement("div")
     divItemName.classList.add("itemName")
 
-    let checkbox = document.createElement("input")
+    const checkbox = document.createElement("input")
     checkbox.setAttribute("type", "checkbox");
-    checkbox.setAttribute("id", `checkbox-${index - 1}`);
+    checkbox.setAttribute("id", `checkbox-${index}`);
 
-    let label = document.createElement("label")
-    label.setAttribute("for", `checkbox-${index - 1}`);
+    const label = document.createElement("label")
+    label.setAttribute("for", `checkbox-${index}`);
     label.innerHTML = newTask.task
 
-    let divItemActions = document.createElement("div")
+    const divItemActions = document.createElement("div")
     divItemActions.classList.add("itemActions")
 
-    let divStatus = document.createElement("div")
+    const divStatus = document.createElement("div")
     divStatus.classList.add("statusActive")
 
-    let spanStatusItem = document.createElement("span")
+    const spanStatusItem = document.createElement("span")
     spanStatusItem.innerHTML = newTask.status
 
-    let deleteButton = document.createElement("button")
-    deleteButton.setAttribute("id", `delete-${index - 1}`);
+    const deleteButton = document.createElement("button")
+    deleteButton.setAttribute("id", `delete-${index}`);
     deleteButton.innerHTML = "Delete"
 
     checkbox.addEventListener("click", e => {
-        let id =  e.target.id.split("-")
-        task[id[1]].status = "Finished"
+        const id =  e.target.id.split("-")
         e.target.disabled = true
         updateItem(id[1])
     })
 
     deleteButton.addEventListener("click", e => {
-        let id =  e.target.id.split("-")
-        delete task[id[1]]
+        const id =  e.target.id.split("-")
         deleteItem(id[1])
     })
 
@@ -79,30 +102,4 @@ function createItem(newTask){
     divItem.appendChild(divItemActions)
 
     taskArea.appendChild(divItem)
-}
-
-function updateItem(indexOfItem){
-    let item = document.querySelector(`#item-${indexOfItem}`)
-    let statusItem = item.lastElementChild.firstElementChild
-    statusItem.firstElementChild.remove()
-    statusItem.classList.remove("statusActive")
-    statusItem.classList.add("statusFinished")
-
-    let spanStatusItem = document.createElement("span")
-    spanStatusItem.innerHTML = task[indexOfItem].status
-    statusItem.appendChild(spanStatusItem)
-
-    contRemain--
-    remainTasks.innerHTML= `${contRemain} Remain`
-}
-
-function deleteItem(indexOfItem){
-    let item = document.querySelector(`#item-${indexOfItem}`)
-    contTask--
-    allTasks.innerHTML= `${contTask} Tasks`
-    if(task[indexOfItem] == "Active") {
-        contRemain--
-        remainTasks.innerHTML= `${contRemain} Remain`
-    }
-    item.remove()
 }
