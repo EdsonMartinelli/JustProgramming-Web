@@ -35,23 +35,28 @@ function updateItem(indexOfItem){
 
 function deleteItem(indexOfItem){
     const item = document.querySelector(`#item-${indexOfItem}`)
-    contTask--
-    allTasks.innerHTML= `${contTask} Tasks`
-    if(task[indexOfItem].status == "Active") {
-        contRemain--
-        remainTasks.innerHTML= `${contRemain} Remain`
-    }
-    delete task[indexOfItem]
-    item.remove()
+    item.classList.remove("enterAnimation")
+    item.classList.add("exitAnimation")
+    item.addEventListener("animationend", e => {
+        contTask--
+        allTasks.innerHTML= `${contTask} Tasks`
+        if(task[indexOfItem].status == "Active") {
+            contRemain--
+            remainTasks.innerHTML = `${contRemain} Remain`
+        }
+        delete task[indexOfItem]
+        e.target.remove()
+    })
 }
 
 // Cloning HTML item and using this as example for new itens.
 
 function createItemByExample(newTask){
-    const example = document.querySelector("#item-exemple")
+    const example = document.querySelector("#item-example")
     const newItem = example.cloneNode(true)
     newItem.setAttribute("id",`item-${index}`)
     newItem.classList.remove("example")
+    newItem.classList.add("enterAnimation")
 
     const checkbox = newItem.querySelector(".itemName input")
     checkbox.setAttribute("id", `checkbox-${index}`);
@@ -78,7 +83,6 @@ function createItemByExample(newTask){
     })
 
     taskArea.appendChild(newItem)
-
 }
 
 // Creating item with pure Javascript

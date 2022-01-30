@@ -18,6 +18,7 @@ body{
     box-sizing: border-box;
     box-shadow: #757575;
     box-shadow: 0px 0px 25px 11px rgba(0,0,0,0.23);
+    overflow: hidden;
 }
 
 header{
@@ -149,4 +150,41 @@ label{
 
 .example{
     display: none;
+}
+
+.exitAnimation, .enterAnimation{
+    animation-name: exitItem;
+    animation-duration: 0.4s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in-out;
+}
+
+.enterAnimation{
+    animation-name: enterItem;
+}
+
+@keyframes exitItem {
+    from {
+        position: relative;
+        left: 0px;
+        opacity: 1;
+    }
+    to {
+        position: relative;
+        left: -450px;
+        opacity: 0;
+    }
+}
+
+@keyframes enterItem {
+    from {
+        position: relative;
+        left: -450px;
+        opacity: 0;
+    }
+    to {
+        position: relative;
+        left: 0px;
+        opacity: 1;
+    }
 }
