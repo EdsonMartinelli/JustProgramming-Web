@@ -49,7 +49,7 @@ function deleteItem(indexOfItem){
     })
 }
 
-// Cloning HTML item and using this as example for new itens.
+// Cloning HTML standard item and using this as an example for new items.
 
 function createItemByExample(newTask){
     const example = document.querySelector("#item-example")
