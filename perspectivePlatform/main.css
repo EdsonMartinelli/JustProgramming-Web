@@ -7,13 +7,30 @@
     perspective-origin: 50% 0%;
 }
 
-.platform{
-    left: 50%;
+.platform1, .platform2, .platform3, .platform4{
     position: relative;
+    left: 50%;
     transform-style: preserve-3d;
     transform: translateX(-50%) rotateX(90deg) rotateZ(45deg);
     max-width: 300px;
     max-height: 300px;
+}
+
+.platform2{
+    left: 0;
+    transform: rotateX(90deg) rotateZ(45deg);
+}
+
+.platform3{
+    left: 100%;
+    top: -300px;
+    transform: translateX(-100%) rotateX(90deg) rotateZ(45deg);
+}
+
+.platform4{
+    left: 50%;
+    top: -300px;
+    transform: translateX(-50%) rotateX(90deg) rotateZ(45deg);
 }
 
 .top, .neon, .bottom{
