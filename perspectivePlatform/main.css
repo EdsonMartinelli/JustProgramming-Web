@@ -1,9 +1,9 @@
 #content{
     position: absolute;
-    height: 300px;
-    width: 300px;
+    height: 900px;
+    width: 900px;
     border: 1px solid blue;
-    perspective: 500px;
+    perspective: 1500px;
     perspective-origin: 50% 0%;
 }
 
@@ -12,32 +12,31 @@
     position: relative;
     transform-style: preserve-3d;
     transform: translateX(-50%) rotateX(90deg) rotateZ(45deg);
-    /*transform: translateX(-50%);*/
-    max-width: 100px;
-    max-height: 100px;
+    max-width: 300px;
+    max-height: 300px;
 }
 
 .top, .neon, .bottom{
     position: relative;
     transform-style: preserve-3d;
-    max-width: 100px;
-    max-height: 100px;
+    max-width: 300px;
+    max-height: 300px;
 }
 
 .bottom{
-    top: -200px;
-    transform: translateZ(-14px);
+    top: -600px;
+    transform: translateZ(-42px);
 }
 
 .neon{
-    top: -100px;
-    transform: translateZ(-12px);
+    top: -300px;
+    transform: translateZ(-36px);
 }
 
 .top-piece, .neon-top-piece{
     position: relative;
-    width: 100px;
-    height: 100px;
+    width: 300px;
+    height: 300px;
     background-color: #f4f5ff;
     box-sizing: border-box;
     border: 1px solid #f2f2f2; 
@@ -45,22 +44,22 @@
 
 .first-side-piece, .neon-first-side-piece{
     position: relative;
-    width: 100px;
-    height: 12px;
+    width: 300px;
+    height: 36px;
     background-color: #919399;
     transform: translateY(-50%) rotateX(90deg) translateY(-50%);
-    border-radius: 2px 0px 0 0;
+    border-radius: 6px 0 0 0;
 }
 
 .second-side-piece, .neon-second-side-piece{
     position: relative;
-    width: 12px;
-    height: 100px;
+    width: 36px;
+    height: 300px;
     background-color: #bbbec6;
-    left: 100px;
-    top: -112px;
+    left: 300px;
+    top: -336px;
     transform: translateX(-50%) rotateY(90deg) translateX(50%);
-    border-radius: 0 2px 0px 0;
+    border-radius: 0 6px 0 0;
 }
 
 .neon-top-piece{
@@ -68,12 +67,12 @@
     background-color: cornflowerblue;
 }
 .neon-second-side-piece{
-    top: -102px;
-    width: 2px;
+    top: -306px;
+    width: 6px;
     background-color: cornflowerblue;
 }
 
 .neon-first-side-piece{
-    height: 2px;
+    height: 6px;
     background-color: cornflowerblue;
 }
