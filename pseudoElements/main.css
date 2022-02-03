@@ -1,0 +1,87 @@
+.content{
+    width: 800px;
+    height: 800px;
+    border: 1px solid blue;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ball{
+    width: 500px;
+    height: 500px;
+    background-color: #8de6ff;
+    border-radius: 50%;
+    box-shadow: inset 0 10px 50px #9aecfe,
+                inset 0 -10px 50px #b597ff;
+    box-sizing: border-box;
+    background-origin: border-box;
+}
+
+.ball::before{
+    content:'';
+    position: relative;
+    display: block;
+    left: 50%;
+    top: 50%;
+    width: 440px;
+    height: 440px;
+    border-radius: 50%;
+    border-right: 15px solid #fff;
+    background-image: linear-gradient(90deg, transparent 40%, #71bfff 60%, #7479ff 80%, #a89fff 95%);
+    transform: translateX(-50%) translateY(-50%) rotateZ(80deg);
+    opacity: .4;
+    box-sizing: border-box;
+    z-index: 2;
+}
+
+.ball::after{
+    content: '';
+    position: relative;
+    display: block;
+    left: 50%;
+    width: 440px;
+    height: 440px;
+    top: -490px;
+    border-radius: 50%;
+    background-image: linear-gradient(transparent 50%, #71bfff 60%, #7479ff 75%, #a89fff 95%);
+    transform: translateX(-50%) rotateZ(30deg);
+    opacity: 0.4;
+    z-index: 1;
+}
+
+.ball .reflex{
+    position: relative;
+    width: 80px;
+    height: 80px;
+    background-image: linear-gradient(90deg, transparent 15%, #fff);
+    left: 260px;
+    top: -410px;
+    opacity: 0.7;
+    border-radius: 50%;
+}
+
+.reflex::after{
+    content: '';
+    position: relative;
+    display: block;
+    width: 30px;
+    height: 30px;
+    background-image: linear-gradient(110deg, transparent, #fff 70%);
+    left: 110px;
+    top: -150px;
+    border-radius: 50%;
+}
+
+.reflex::before{
+    content: '';
+    position: relative;
+    display: block;
+    width: 200px;
+    height: 200px;
+    background-image: linear-gradient(45deg, transparent 50%, #fff);
+    left: -210px;
+    top: 50px;
+    opacity: 0.5;
+    border-radius: 50%;
+}
